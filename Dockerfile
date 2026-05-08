@@ -1,5 +1,5 @@
 from python:3.11.3-alpine3.18
-LABEL manteiner="github.com/kahazdev"
+LABEL mantainer="github.com/kahazdev"
 
 # Essa variável de ambiente é usada para controlar se o Python deve 
 # gravar arquivos de bytecode (.pyc) no disco. 1 = Não, 0 = Sim
