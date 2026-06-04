@@ -7,10 +7,8 @@ PER_PAGE = 9
 # Create your views here.
 
 
-
 def index(request):
-    posts = Post.objects.get_published()
-
+    posts = Post.objects.get_published()  # type: ignore
 
     paginator = Paginator(posts, PER_PAGE)
     page_number = request.GET.get("page")
