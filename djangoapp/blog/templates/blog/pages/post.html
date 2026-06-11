@@ -71,36 +71,21 @@
       <div class="single-post-content">
         {{post.content | safe}}
       
-        <div class="post-tags">
-          <span>{{post.tags}} </span>
+      {% if post.tags.exists %}
+         <div class="post-tags">
+          <span>Tags: </span>
 
-          <a class="post-tag-link" href="#">
-            <i class="fa-solid fa-link"></i>
-            <span>Testando</span>
-          </a>
 
-          <a class="post-tag-link" href="#">
-            <i class="fa-solid fa-link"></i>
-            <span>Atenção</span>
-          </a>
+          {% for tags in post.tags.all  %}
+            <a class="post-tag-link" href="{% url "blog:tag" tags.slug %}">
+              <i class="fa-solid fa-link"></i>
+              <span>{{tags.name}}</span>
+            </a>
+          {% endfor %}
 
-          <a class="post-tag-link" href="#">
-            <i class="fa-solid fa-link"></i>
-            <span>Obrigado</span>
-          </a>
-
-          <a class="post-tag-link" href="#">
-            <i class="fa-solid fa-link"></i>
-            <span>Educação</span>
-          </a>
-
-          <a class="post-tag-link" href="#">
-            <i class="fa-solid fa-link"></i>
-            <span>Python</span>
-          </a>
-
+      
         </div>
-        
+      {% endif %}  
       </div>
     
     </div>
