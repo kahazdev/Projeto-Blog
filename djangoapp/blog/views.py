@@ -72,7 +72,7 @@ def created_by(request, author_pk):
     posts = (Post.objects.get_published()  # type: ignore
              .filter(created_by__pk=author_pk))
     user = User.objects.filter(pk=author_pk).first()
-    user_full_name = user.username
+    user_full_name = user.username  # type: ignore
 
     if user is None:
         raise Http404()
